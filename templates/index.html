@@ -47,15 +47,7 @@
             opacity: 0.9;
         }
 
-        /* Adjust button size for portrait and landscape */
-        @media (orientation: landscape) {
-            .button {
-                width: 30vw; /* Smaller button width in landscape mode */
-                height: 20vh; /* Smaller button height in landscape mode */
-            }
-        }
-
-        /* Button text styles */
+        /* Text styles inside the button */
         .button-content {
             position: relative;
             width: 100%;
@@ -64,25 +56,35 @@
 
         .small-text {
             position: absolute;
-            top: 20%;
+            top: 15%; /* Fixed position for text */
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2.5vw; /* Scales text size based on viewport width */
+            font-size: 1.5rem; /* Keep consistent across orientations */
             margin: 0;
             color: white;
             font-family: Georgia, serif;
+            text-align: center;
         }
 
         .big-text {
             position: absolute;
-            top: 50%;
+            top: 50%; /* Center the main text */
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 4vw; /* Scales text size based on viewport width */
+            font-size: 2rem; /* Keep consistent across orientations */
             font-weight: bold;
             margin: 0;
             color: white;
             font-family: Georgia, serif;
+            text-align: center;
+        }
+
+        /* Adjust button size for landscape and portrait orientations */
+        @media (orientation: landscape) {
+            .button {
+                width: 30vw; /* Smaller button width in landscape mode */
+                height: 20vh; /* Smaller button height in landscape mode */
+            }
         }
     </style>
 </head>
