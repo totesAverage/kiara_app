@@ -40,4 +40,4 @@ def static_files(path):
 
 if __name__ == "__main__":
     # Just run Flask directly. The debug flag is optional.
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=8080)
