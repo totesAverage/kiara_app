@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playing Video</title>
     <style>
-        body {
-            background-color: black;
+        html, body {
             margin: 0;
+            padding: 0;
+            height: 100%; /* Ensure the full viewport is used */
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            background-color: black; /* Black background for better video focus */
         }
+
         video {
-            width: 90%;
-            height: auto;
+            max-width: 100%; /* Prevent overflow horizontally */
+            max-height: 100%; /* Prevent overflow vertically */
+            object-fit: contain; /* Maintain aspect ratio of the video */
+            border: none; /* Remove any default border around video */
         }
     </style>
 </head>
@@ -25,6 +29,8 @@
     <video src="{{ video_url }}" controls autoplay></video>
     <script>
         const videoElement = document.querySelector("video");
+
+        // Redirect to the "Thank You" page when the video ends
         videoElement.addEventListener("ended", () => {
             window.location.href = "/thankyou";
         });
