@@ -13,6 +13,7 @@
             width: 100%; /* Ensure it fits the viewport */
             overflow: hidden; /* Prevent scrolling if content overflows */
         }
+
         body {
             background: url('/static/images/bg18.png') no-repeat center center;
             background-size: contain; /* Ensure the full image is visible */
@@ -28,13 +29,13 @@
         /* Dynamically adjust based on orientation */
         @media (orientation: landscape) {
             body {
-                background-size: 100% auto; /* Stretch width to 100% of the viewport */
+                background-size: cover; /* Scale to cover the screen in landscape mode */
             }
         }
 
         @media (orientation: portrait) {
             body {
-                background-size: auto 100%; /* Stretch height to 100% of the viewport */
+                background-size: 100% auto; /* Fit the width of the screen in portrait mode */
             }
         }
 
