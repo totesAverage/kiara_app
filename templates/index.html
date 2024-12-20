@@ -26,38 +26,10 @@
             text-align: center;
         }
 
-        /* Dynamically adjust based on orientation */
-        @media (orientation: landscape) {
-            body {
-                background-size: cover; /* Scale to cover the screen in landscape mode */
-            }
-        }
-
-        @media (orientation: portrait) {
-            body {
-                background-size: 100% auto; /* Fit the width of the screen in portrait mode */
-            }
-        }
-
-        /* Pulsing Animation */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
+        /* Button styles */
         .button {
-            width: 700px;
-            height: 450px;
+            width: 40vw; /* Button width scales with the viewport width */
+            height: 25vh; /* Button height scales with the viewport height */
             background: url('/static/images/button-background.png') no-repeat center center;
             background-size: cover;
             border: none;
@@ -67,16 +39,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .button:focus {
-            outline: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .button:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
             opacity: 0.9;
         }
 
+        /* Adjust button size for portrait and landscape */
+        @media (orientation: landscape) {
+            .button {
+                width: 30vw; /* Smaller button width in landscape mode */
+                height: 20vh; /* Smaller button height in landscape mode */
+            }
+        }
+
+        /* Button text styles */
         .button-content {
             position: relative;
             width: 100%;
@@ -85,12 +64,12 @@
 
         .small-text {
             position: absolute;
-            top: 175px;
+            top: 20%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 14px; /* Increased font size for better visibility */
+            font-size: 2.5vw; /* Scales text size based on viewport width */
             margin: 0;
-            color: white; /* Ensure text is white */
+            color: white;
             font-family: Georgia, serif;
         }
 
@@ -99,21 +78,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 48px; /* Increased font size for better visibility */
+            font-size: 4vw; /* Scales text size based on viewport width */
             font-weight: bold;
             margin: 0;
-            color: white; /* Ensure text is white */
+            color: white;
             font-family: Georgia, serif;
-        }
-
-        /* Optional: Add a smooth transition for hover effects */
-        .button {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .button:hover {
-            transform: scale(1.02); /* Slightly enlarge on hover */
-            opacity: 0.9;
         }
     </style>
 </head>
