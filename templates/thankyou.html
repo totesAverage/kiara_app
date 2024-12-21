@@ -6,39 +6,32 @@
     <meta name="mobile-web-app-capable" content="yes">
     <title>Returning</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%; /* Ensure full-screen width */
-            overflow: hidden; /* Prevent scrolling if content overflows */
-        }
-
         body {
-            background-image: url('/static/images/bg19.png');
-            background-size: contain; /* Default: Ensure the full image is visible */
-            background-repeat: no-repeat; /* Prevent tiling */
-            background-position: center; /* Center the image */
-            background-color: black; /* Fallback for blank areas */
+            background: url('/static/images/bg19.png') no-repeat center center;
+            background-color: black; /* Fill edges with black */
             font-family: Georgia, serif;
             text-align: center;
             color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        /* Dynamically adjust based on orientation */
-        @media (orientation: landscape) {
+        /* Portrait mode: Use contain */
+        @media (orientation: portrait) {
             body {
-                background-size: cover; /* Cover the screen in landscape mode */
+                background-size: contain; /* Show the full image in portrait */
             }
         }
 
-        @media (orientation: portrait) {
+        /* Landscape mode: Use cover */
+        @media (orientation: landscape) {
             body {
-                background-size: auto 100%; /* Scale height to fit in portrait mode */
+                background-size: cover; /* Fill the screen in landscape */
             }
         }
     </style>
