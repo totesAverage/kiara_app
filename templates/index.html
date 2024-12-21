@@ -16,8 +16,8 @@
 
         body {
             background: url('/static/images/bg18.png') no-repeat center center;
-            background-size: contain; /* Ensure the full image is visible */
-            background-color: black; /* Fallback for blank areas */
+            background-size: contain; /* Always display the full image */
+            background-color: black; /* Fill edges with black */
             font-family: Georgia, serif;
             color: white;
             display: flex;
@@ -26,10 +26,25 @@
             text-align: center;
         }
 
-        /* Button styles */
+        /* Pulsing Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
         .button {
-            width: 40vw; /* Button width scales with the viewport width */
-            height: 25vh; /* Button height scales with the viewport height */
+            width: 700px;
+            height: 450px;
             background: url('/static/images/button-background.png') no-repeat center center;
             background-size: cover;
             border: none;
@@ -39,15 +54,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: width 0.3s ease, height 0.3s ease; /* Smooth transition for size changes */
+        }
+
+        .button:focus {
+            outline: none;
         }
 
         .button:hover {
-            transform: scale(1.02); /* Slightly enlarge on hover */
             opacity: 0.9;
         }
 
-        /* Text styles inside the button */
         .button-content {
             position: relative;
             width: 100%;
@@ -56,34 +73,53 @@
 
         .small-text {
             position: absolute;
-            top: 15%; /* Fixed position for text */
+            top: 175px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1.5rem; /* Keep consistent across orientations */
+            font-size: 14px; /* Adjusted for better visibility */
             margin: 0;
-            color: white;
+            color: white; /* Ensure text is white */
             font-family: Georgia, serif;
-            text-align: center;
         }
 
         .big-text {
             position: absolute;
-            top: 50%; /* Center the main text */
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2rem; /* Keep consistent across orientations */
+            font-size: 48px; /* Adjusted for better visibility */
             font-weight: bold;
             margin: 0;
-            color: white;
+            color: white; /* Ensure text is white */
             font-family: Georgia, serif;
-            text-align: center;
         }
 
-        /* Adjust button size for landscape and portrait orientations */
-        @media (orientation: landscape) {
+        /* Optional: Add a smooth transition for hover effects */
+        .button:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
+            opacity: 0.9;
+        }
+
+        /* Adjustments for portrait mode */
+        @media (orientation: portrait) {
             .button {
-                width: 30vw; /* Smaller button width in landscape mode */
-                height: 20vh; /* Smaller button height in landscape mode */
+                width: 300px; /* Smaller width for portrait */
+                height: 200px; /* Smaller height for portrait */
+            }
+
+            .small-text {
+                top: 77px; /* Adjusted for smaller button */
+                font-size: 7px;
+            }
+
+            .big-text {
+                top: 50%; /* Adjusted for smaller button */
+                font-size: 20px;
+            }
+        }
+        @media (orientation: landscape) {
+            body {
+                background-size: cover; /* Fill the screen */
             }
         }
     </style>
